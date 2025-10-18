@@ -10,7 +10,6 @@ export default function TabBar({ state, navigation }: BottomTabBarProps) {
     return (
         <View style={[styles.tabBar]}>
             {routes.map((routeName, i) => {
-
                 const isFocused = state.index === i;
                 return (
                     <Tab
@@ -28,7 +27,7 @@ export default function TabBar({ state, navigation }: BottomTabBarProps) {
 const styles = StyleSheet.create({
     tabBar: {
         position: "absolute",
-        bottom: 30,
+        bottom: 20,
         alignSelf: "center",
         flex: 1,
         flexDirection: "row",
@@ -36,6 +35,5 @@ const styles = StyleSheet.create({
         backgroundColor: colors.text,
         borderRadius: 50,
         padding: 10,
-        gap: 8
     }
 })

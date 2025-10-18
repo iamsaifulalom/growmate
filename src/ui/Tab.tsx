@@ -1,14 +1,20 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { TouchableOpacity, StyleSheet } from 'react-native'
 import { colors } from '../theme/colors'
+import { tabIcons } from '../constants/tab-icons';
 
-export default function Tab({ isFocusd, onPress }: TabProps) {
+export default function Tab({ isFocusd, onPress, routeName }: TabProps) {
 
     const backgroundColor = isFocusd ? colors.primary : "transparent";
+    const iconColor = isFocusd ? colors.surface : colors.background; 
+    const { Icon } = tabIcons[routeName]
 
     return (
-        <View style={[styles.tab, { backgroundColor }]}>
-            <Text onPress={onPress}>Tab</Text>
-        </View>
+        <TouchableOpacity
+            onPress={onPress}
+            style={[styles.tab, { backgroundColor }]}
+        >
+            <Icon color={iconColor} />
+        </TouchableOpacity>
     )
 }
 
@@ -25,5 +31,6 @@ const styles = StyleSheet.create({
 interface TabProps {
     isFocusd: boolean,
     routeName: string,
-    onPress: () => void
+    onPress: () => void,
+
 }
