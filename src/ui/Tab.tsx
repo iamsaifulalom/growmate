@@ -5,7 +5,10 @@ import { tabIcons } from '../constants/tab-icons';
 export default function Tab({ isFocusd, onPress, routeName }: TabProps) {
 
     const backgroundColor = isFocusd ? colors.primary : "transparent";
-    const iconColor = isFocusd ? colors.surface : colors.background; 
+    const iconColor = isFocusd ? colors.text : colors.muted; 
+
+    // access icon propert from tabicons object 
+    // with routename as key
     const { Icon } = tabIcons[routeName]
 
     return (

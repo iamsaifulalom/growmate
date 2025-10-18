@@ -8,28 +8,24 @@ export default function Layout() {
                 name='index'
                 options={{
                     headerShown: false,
-                    animation: "shift",
                 }}
             />
             <Tabs.Screen
                 name='clients'
                 options={{
                     headerShown: false,
-                    animation: "shift"
                 }}
             />
             <Tabs.Screen
                 name='todos'
                 options={{
                     headerShown: false,
-                    animation: "shift"
                 }}
             />
             <Tabs.Screen
                 name='settings'
                 options={{
                     headerShown: false,
-                    animation: "shift"
                 }}
             />
         </Tabs>
