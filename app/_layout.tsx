@@ -21,6 +21,14 @@ export default function RootLayout() {
       <SafeAreaView edges={["top"]} style={{ backgroundColor: colors.background, flex: 1 }}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="search"
+            options={{
+              headerShown: false,
+              animation: "slide_from_right",
+              animationDuration: 10
+            }}
+          />
         </Stack>
       </SafeAreaView>
     </>

@@ -2,7 +2,7 @@ import React from 'react';
 import Svg, { Path } from 'react-native-svg'
 import { IconProps } from './home-icon';
 
-export default function SettingsIcon({ color }: IconProps) {
+export default function SettingsIcon({ color }: IconProps): React.ReactElement {
     return (
         <Svg
             width="27"

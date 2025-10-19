@@ -6,7 +6,7 @@ import { colors } from '@/src/theme/colors'
 export default function SearchIcon({ color = colors.text }: IconProps) {
     return (
         <Svg
-            width="25"
+            width="24"
             height="24"
             viewBox="0 0 25 24"
             fill="none"

@@ -1,12 +1,11 @@
 import { View, StyleSheet } from 'react-native'
 import React, { ReactNode } from 'react'
-import { colors } from '../theme/colors'
+import { colors } from '../theme/colors';
 
-export default function ScreenWraper({ children }: { children?: ReactNode }) {
+export default function ScreenWrapper({ children }: { children?: ReactNode }) {
+    
     return (
-        <View
-            style={styles.container}
-        >
+        <View style={styles.container}>
             {children}
         </View>
     )

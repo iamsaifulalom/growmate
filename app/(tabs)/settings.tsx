@@ -1,20 +1,23 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { Text } from 'react-native'
 import React from 'react'
-import ScreenWraper from '@/src/ui/screen-wraper'
-import { defaultScreenStyle } from '.'
+import ScreenWrapper from '@/src/ui/screen-wrapper'
 import { styles } from '@/src/ui/overview-card'
-import PlusIcon from '@/assets/icons/plus-icon'
 import MoonIcon from '@/assets/icons/moon-icon'
+import HeaderWrapper from '@/src/ui/header-wrapper'
+import IconWrapper from '@/src/ui/icon-wrapper'
 
 export default function Settings() {
-    return (
-        <ScreenWraper>
-            <View style={defaultScreenStyle.headerContainer}>
-                   <Text style={[styles.title, { fontSize: 26 }]}>Settings</Text>
-                   <TouchableOpacity style={defaultScreenStyle.iconButton}>
-                     <MoonIcon />
-                   </TouchableOpacity>
-                 </View>
-        </ScreenWraper>
-    )
+  return (
+    <ScreenWrapper>
+
+      {/* screen header */}
+      <HeaderWrapper>
+        <Text style={[styles.title, { fontSize: 26 }]}>Settings</Text>
+        <IconWrapper>
+          <MoonIcon />
+        </IconWrapper>
+      </HeaderWrapper>
+      
+    </ScreenWrapper>
+  )
 }

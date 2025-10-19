@@ -1,50 +1,57 @@
 import { View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { colors } from '@/src/theme/colors'
-import ScreenWraper from '@/src/ui/screen-wraper'
+import ScreenWrapper from '@/src/ui/screen-wrapper'
 import OverviewCard from '@/src/ui/overview-card'
 import NotificationIcon from '@/assets/icons/notification-icon'
 import SearchIcon from '@/assets/icons/search-icon'
 import PlusIcon from '@/assets/icons/plus-icon'
+import IconWrapper from '@/src/ui/icon-wrapper'
+import HeaderWrapper from '@/src/ui/header-wrapper'
+import SearchBar from '@/src/ui/search-bar'
+import { useRouter } from 'expo-router'
 
 export default function Index() {
+
+  const { push } = useRouter();
+
   return (
-    <ScreenWraper>
+    <ScreenWrapper>
 
       {/* ===== Header Icons ===== */}
-      <View style={defaultScreenStyle.headerContainer}>
-        <TouchableOpacity style={defaultScreenStyle.iconButton}>
+      <HeaderWrapper>
+        <IconWrapper>
           <NotificationIcon />
-        </TouchableOpacity>
+        </IconWrapper>
 
         <View style={defaultScreenStyle.rightIconsWrapper}>
-          <TouchableOpacity style={defaultScreenStyle.iconButton}>
+          <IconWrapper>
             <PlusIcon />
-          </TouchableOpacity>
-          <TouchableOpacity style={defaultScreenStyle.iconButton}>
+          </IconWrapper>
+          <IconWrapper onPress={()=>push("/search")}>
             <SearchIcon />
-          </TouchableOpacity>
+          </IconWrapper>
         </View>
-      </View>
+      </HeaderWrapper>
 
       {/* ===== Screen Contents ===== */}
       <ScrollView
         contentContainerStyle={defaultScreenStyle.contentSection}
         showsVerticalScrollIndicator={false}
       >
+        <SearchBar />
+
         <OverviewCard
-          backgroundColor={colors.primary}
           title='New clients'
         />
         <OverviewCard
-          backgroundColor={colors.secondary}
           title='Contacted clients'
         />
         <OverviewCard
           title='Grow clients'
         />
       </ScrollView>
-    </ScreenWraper>
+    </ScreenWrapper>
   )
 }
 

@@ -1,19 +1,24 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { Text } from 'react-native'
 import React from 'react'
-import ScreenWraper from '@/src/ui/screen-wraper'
-import { defaultScreenStyle } from '.'
+import ScreenWrapper from '@/src/ui/screen-wrapper'
 import { styles } from '@/src/ui/overview-card'
 import PlusIcon from '@/assets/icons/plus-icon'
+import HeaderWrapper from '@/src/ui/header-wrapper'
+import IconWrapper from '@/src/ui/icon-wrapper'
 
 export default function ToDos() {
   return (
-    <ScreenWraper>
-      <View style={defaultScreenStyle.headerContainer}>
+    <ScreenWrapper>
+
+      {/* screen header */}
+      <HeaderWrapper>
         <Text style={[styles.title, { fontSize: 26 }]}>To do</Text>
-        <TouchableOpacity style={defaultScreenStyle.iconButton}>
+        <IconWrapper >
           <PlusIcon />
-        </TouchableOpacity>
-      </View>
-    </ScreenWraper>
+        </IconWrapper>
+      </HeaderWrapper>
+
+      {/* screen content */}
+    </ScreenWrapper>
   )
 }
