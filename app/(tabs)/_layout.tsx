@@ -6,28 +6,24 @@ export default function Layout() {
         <Tabs tabBar={(props) => <TabBar {...props} />}>
             <Tabs.Screen
                 name='index'
-                options={{
-                    headerShown: false,
-                }}
+                options={tabOptions}
             />
             <Tabs.Screen
                 name='clients'
-                options={{
-                    headerShown: false,
-                }}
+                options={tabOptions}
             />
             <Tabs.Screen
                 name='todos'
-                options={{
-                    headerShown: false,
-                }}
+                options={tabOptions}
             />
             <Tabs.Screen
                 name='settings'
-                options={{
-                    headerShown: false,
-                }}
+                options={tabOptions}
             />
         </Tabs>
     )
+}
+
+const tabOptions = {
+    headerShown: false,
 }

@@ -27,13 +27,16 @@ export default function TabBar({ state, navigation }: BottomTabBarProps) {
 const styles = StyleSheet.create({
     tabBar: {
         position: "absolute",
-        bottom: 20,
+        bottom: 0,
         alignSelf: "center",
         flex: 1,
         flexDirection: "row",
         justifyContent: "space-between",
-        backgroundColor: colors.text,
-        borderRadius: 50,
-        padding: 10,
+        backgroundColor: colors.background,
+        // borderRadius: 50,
+        left: 0,
+        right: 0,
+        paddingBottom : 4,
+        paddingHorizontal : 20
     }
 })

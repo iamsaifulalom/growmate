@@ -4,7 +4,9 @@ import { colors } from '../theme/colors'
 
 export default function ScreenWraper({ children }: { children?: ReactNode }) {
     return (
-        <View style={styles.container}>
+        <View
+            style={styles.container}
+        >
             {children}
         </View>
     )
@@ -12,8 +14,8 @@ export default function ScreenWraper({ children }: { children?: ReactNode }) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: colors.surface,
-        padding: 20
+        minHeight: "100%",
+        paddingBottom: 120,
     }
 })
