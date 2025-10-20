@@ -1,10 +1,13 @@
 import { View, StyleSheet } from 'react-native'
 import React, { ReactNode } from 'react'
-import { colors } from '../theme/colors'
+import { useTheme } from '../store/use-theme'
 
 export default function HeaderWrapper({ children }: { children: ReactNode }) {
+
+    const theme = useTheme(state => state.theme);
+
     return (
-        <View style={styles.header}>
+        <View style={[styles.header, { backgroundColor: theme.background, }]}>
             {children}
         </View>
 
@@ -16,8 +19,8 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: colors.background,
         paddingHorizontal: 20,
-        height: 60
+        height: 60,
+        gap: 5
     },
 })

@@ -1,16 +1,17 @@
 import React from 'react';
 import Svg, { Path, SvgWithCss } from 'react-native-svg'
 import { IconProps } from './home-icon';
-import { colors } from '@/src/theme/colors';
+import { useTheme } from '@/src/store/use-theme';
 
-export default function MoonIcon({ color = colors.text }: IconProps) {
+export default function MoonIcon({ color }: IconProps) {
+    const theme = useTheme(state => state.theme)
     return (
         <Svg
             width="24"
             height="24"
             viewBox="0 0 24 24"
             fill="none"
-            color={color}
+            color={color || theme.text}
         >
             <Path
                 fillRule="evenodd"

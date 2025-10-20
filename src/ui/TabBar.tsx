@@ -1,14 +1,15 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import { colors } from '../theme/colors';
 import Tab from './Tab';
+import { useTheme } from '../store/use-theme';
 
 export default function TabBar({ state, navigation }: BottomTabBarProps) {
 
+    const theme = useTheme(state => state.theme);
     const routes = state.routeNames;
 
     return (
-        <View style={[styles.tabBar]}>
+        <View style={[styles.tabBar, { backgroundColor: theme.background }]}>
             {routes.map((routeName, i) => {
                 const isFocused = state.index === i;
                 return (
@@ -32,11 +33,9 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         justifyContent: "space-between",
-        backgroundColor: colors.background,
-        // borderRadius: 50,
         left: 0,
         right: 0,
-        paddingBottom : 4,
-        paddingHorizontal : 20
+        paddingBottom: 4,
+        paddingHorizontal: 20
     }
 })

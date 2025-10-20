@@ -1,11 +1,13 @@
 import { View, StyleSheet } from 'react-native'
 import React, { ReactNode } from 'react'
-import { colors } from '../theme/colors';
+import { useTheme } from '../store/use-theme';
 
 export default function ScreenWrapper({ children }: { children?: ReactNode }) {
-    
+
+    const theme = useTheme(state => state.theme)
+
     return (
-        <View style={styles.container}>
+        <View style={[styles.container , {backgroundColor: theme.surface}]}>
             {children}
         </View>
     )
@@ -13,7 +15,6 @@ export default function ScreenWrapper({ children }: { children?: ReactNode }) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.surface,
         minHeight: "100%",
         paddingBottom: 120,
     }

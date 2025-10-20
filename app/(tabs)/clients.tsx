@@ -5,6 +5,7 @@ import PlusIcon from '@/assets/icons/plus-icon'
 import { styles } from '@/src/ui/overview-card'
 import HeaderWrapper from '@/src/ui/header-wrapper'
 import IconWrapper from '@/src/ui/icon-wrapper'
+import { H2 } from '@/src/ui/Elements'
 
 export default function Clients() {
   return (
@@ -12,7 +13,7 @@ export default function Clients() {
 
       {/* screen header */}
       <HeaderWrapper>
-        <Text style={[styles.title, { fontSize: 26 }]}>Clients</Text>
+        <H2>Clients</H2>
         <IconWrapper>
           <PlusIcon />
         </IconWrapper>

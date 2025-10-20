@@ -1,11 +1,13 @@
 import { TouchableOpacity, StyleSheet } from 'react-native'
-import { colors } from '../theme/colors'
 import { tabIcons } from '../constants/tab-icons';
+import { useTheme } from '../store/use-theme';
 
 export default function Tab({ isFocusd, onPress, routeName }: TabProps) {
 
-    const borderTopColor = isFocusd ? colors.text : "transparent";
-    const iconColor = isFocusd ? colors.text : colors.muted;
+    const theme = useTheme(state => state.theme);
+
+    const borderTopColor = isFocusd ? theme.text : "transparent";
+    const iconColor = isFocusd ? theme.text : theme.muted;
 
     // access icon properties from tabicons object 
     // with routename as key

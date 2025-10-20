@@ -5,6 +5,7 @@ import { styles } from '@/src/ui/overview-card'
 import PlusIcon from '@/assets/icons/plus-icon'
 import HeaderWrapper from '@/src/ui/header-wrapper'
 import IconWrapper from '@/src/ui/icon-wrapper'
+import { H2 } from '@/src/ui/Elements'
 
 export default function ToDos() {
   return (
@@ -12,7 +13,7 @@ export default function ToDos() {
 
       {/* screen header */}
       <HeaderWrapper>
-        <Text style={[styles.title, { fontSize: 26 }]}>To do</Text>
+        <H2>To do</H2>
         <IconWrapper >
           <PlusIcon />
         </IconWrapper>

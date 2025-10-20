@@ -1,12 +1,13 @@
-import { colors } from "@/src/theme/colors";
 import { Stack } from "expo-router";
 import { StatusBar } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useFonts } from 'expo-font';
+import { useTheme } from "@/src/store/use-theme";
 
 
 export default function RootLayout() {
 
+  const theme = useTheme(state => state.theme)
   const [fontLoaded] = useFonts({
     "poppins-regular": require("@/assets/fonts/poppins-regular.ttf"),
     "space-grotesk-bold": require("@/assets/fonts/space-grotesk-bold.ttf"),
@@ -17,8 +18,8 @@ export default function RootLayout() {
   return (
     <>
       {/* */}
-      <StatusBar barStyle={colors.barStyle} backgroundColor={colors.background} />
-      <SafeAreaView edges={["top"]} style={{ backgroundColor: colors.background, flex: 1 }}>
+      <StatusBar barStyle={theme.barStyle} backgroundColor={theme.background} />
+      <SafeAreaView edges={["top"]} style={{ backgroundColor: theme.background, flex: 1 }}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen

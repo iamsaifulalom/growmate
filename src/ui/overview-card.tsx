@@ -1,29 +1,23 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import { colors } from '../theme/colors'
+import { useTheme } from '../store/use-theme'
+import { H1, P } from './Elements'
 
-export default function OverviewCard({
-    backgroundColor = colors.background,
-    title
-}: OverviewCardProps) {
+export default function OverviewCard({ title }: OverviewCardProps) {
+
+    const theme = useTheme(state => state.theme)
+
     return (
-        <View style={[styles.card, { backgroundColor }]}>
+        <View style={[styles.card, { backgroundColor: theme.background }]}>
             <View style={styles.paragraphContainer}>
-                <Text style={styles.paragraph}>{title}</Text>
-                <Text style={[styles.paragraph, { fontFamily: "space-grotesk-bold" }]}>20% </Text>
+                <P >{title}</P>
+                <P style={{ fontFamily: "space-grotesk-bold" }}>20% </P>
             </View>
-            <Text style={styles.title}>40</Text>
-            <View style={[
-                styles.paragraphContainer,
-                { justifyContent: "space-between" }
-            ]}>
-                <Text style={styles.paragraph}>vs. last week</Text>
-                <Text style={
-                    [styles.paragraph,
-                    { fontFamily: "space-grotesk-bold" }
-                    ]}>
-                    20
-                </Text>
+            <H1>40</H1>
+            <View style={[styles.paragraphContainer, { justifyContent: "space-between" }]}>
+                <P>vs. last week</P>
+                <P style={{ fontFamily: "space-grotesk-bold" }}>20</P>
             </View>
         </View>
     )
@@ -37,16 +31,6 @@ export const styles = StyleSheet.create({
         borderRadius: 24,
         padding: 16,
         elevation: 1
-    },
-    title: {
-        color: colors.text,
-        fontSize: 40,
-        fontFamily: "space-grotesk-bold"
-    },
-    paragraph: {
-        color: colors.text,
-        fontSize: 16,
-        fontFamily: "poppins-regular"
     },
     paragraphContainer: {
         flexDirection: "row",
