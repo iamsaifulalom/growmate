@@ -26,7 +26,7 @@ export default function RootLayout() {
             name="search"
             options={{
               headerShown: false,
-              animation: "slide_from_right",
+              animation: "fade",
               animationDuration: 10
             }}
           />

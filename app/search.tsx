@@ -5,9 +5,10 @@ import HeaderWrapper from '@/src/ui/header-wrapper'
 import IconWrapper from '@/src/ui/icon-wrapper'
 import LeftArrowIcon from '@/assets/icons/left-arrow-icon'
 import { useRouter } from 'expo-router'
-import { colors } from '@/src/theme/colors'
+import { useTheme } from '@/src/store/use-theme'
 
 export default function Search() {
+    const theme = useTheme(state => state.theme)
     const { back } = useRouter()
     return (
         <ScreenWrapper>
@@ -16,20 +17,18 @@ export default function Search() {
                     <LeftArrowIcon />
                 </IconWrapper>
                 <TextInput
-                    selectionColor={colors.primary}
+                    selectionColor={theme.primary}
                     autoFocus={true}
                     placeholder='Search ...'
-                    placeholderTextColor={colors.muted}
+                    placeholderTextColor={theme.muted}
                     multiline={false}
                     style={{
                         paddingHorizontal: 16,
                         borderRadius: 24,
-                        borderColor: colors.text,
-                        backgroundColor: colors.surface,
+                        backgroundColor: theme.surface,
                         marginLeft: 10,
                         flex: 1,
-                        color: colors.text,
-                        borderWidth: 1.5,
+                        color: theme.text,
                         height: 45,
                         fontFamily: "space-grotesk-bold"
                     }}
