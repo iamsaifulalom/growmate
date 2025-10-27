@@ -1,15 +1,15 @@
-import { View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, ScrollView, StyleSheet } from 'react-native'
 import React from 'react'
-import { colors } from '@/src/theme/colors'
 import ScreenWrapper from '@/src/ui/screen-wrapper'
-import OverviewCard from '@/src/ui/overview-card'
 import NotificationIcon from '@/assets/icons/notification-icon'
 import SearchIcon from '@/assets/icons/search-icon'
 import PlusIcon from '@/assets/icons/plus-icon'
 import IconWrapper from '@/src/ui/icon-wrapper'
 import HeaderWrapper from '@/src/ui/header-wrapper'
-import SearchBar from '@/src/ui/search-bar'
 import { useRouter } from 'expo-router'
+import WeeklyPerformaceGraph from '@/src/ui/weekly-performance-graph'
+import ClientsOverview from '@/src/ui/clients-overvie'
+import Activity from '@/src/ui/activity'
 
 export default function Index() {
 
@@ -28,7 +28,7 @@ export default function Index() {
           <IconWrapper>
             <PlusIcon />
           </IconWrapper>
-          <IconWrapper onPress={()=>push("/search")}>
+          <IconWrapper onPress={() => push("/search")}>
             <SearchIcon />
           </IconWrapper>
         </View>
@@ -39,47 +39,26 @@ export default function Index() {
         contentContainerStyle={defaultScreenStyle.contentSection}
         showsVerticalScrollIndicator={false}
       >
-        <SearchBar />
-
-        <OverviewCard
-          title='New clients'
-        />
-        <OverviewCard
-          title='Contacted clients'
-        />
-        <OverviewCard
-          title='Grow clients'
-        />
+        {/* weekly performace */}
+        <WeeklyPerformaceGraph/>
+        {/* clients over view cards */}
+        <ClientsOverview/>
+        {/* strikes */}
+        <Activity/>
       </ScrollView>
     </ScreenWrapper>
   )
 }
 
-export const defaultScreenStyle = StyleSheet.create({
-  headerContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: colors.background,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-  },
+const defaultScreenStyle = StyleSheet.create({
   rightIconsWrapper: {
     flexDirection: 'row',
     gap: 10,
   },
-  iconButton: {
-    height: 46,
-    width: 46,
-    backgroundColor: colors.surface,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 50,
-  },
   contentSection: {
     flexDirection: 'column',
-    gap: 12,
-    marginTop: 16,
+    gap: 6,
+    marginTop: 10,
     paddingHorizontal: 20,
     paddingBottom: 40, // for scroll breathing space
   },

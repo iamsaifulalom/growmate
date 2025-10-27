@@ -1,4 +1,4 @@
-import { Text, TextInput } from 'react-native'
+import { TextInput } from 'react-native'
 import React from 'react'
 import ScreenWrapper from '@/src/ui/screen-wrapper'
 import HeaderWrapper from '@/src/ui/header-wrapper'
@@ -25,7 +25,7 @@ export default function Search() {
                     style={{
                         paddingHorizontal: 16,
                         borderRadius: 24,
-                        backgroundColor: theme.surface,
+                        backgroundColor: theme.background,
                         marginLeft: 10,
                         flex: 1,
                         color: theme.text,

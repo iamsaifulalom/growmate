@@ -7,7 +7,7 @@ export default function HeaderWrapper({ children }: { children: ReactNode }) {
     const theme = useTheme(state => state.theme);
 
     return (
-        <View style={[styles.header, { backgroundColor: theme.background, }]}>
+        <View style={[styles.header, { backgroundColor: theme.surface, }]}>
             {children}
         </View>
 

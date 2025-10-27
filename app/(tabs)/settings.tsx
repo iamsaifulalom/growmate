@@ -10,7 +10,6 @@ import { H2 } from '@/src/ui/Elements'
 export default function Settings() {
 
   const toggleTheme = useTheme(state => state.toggleTheme)
-  const theme = useTheme(state => state.theme)
   const currentTheme = useTheme(state => state.theme.name)
 
 

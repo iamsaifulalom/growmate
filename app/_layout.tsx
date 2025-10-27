@@ -18,8 +18,8 @@ export default function RootLayout() {
   return (
     <>
       {/* */}
-      <StatusBar barStyle={theme.barStyle} backgroundColor={theme.background} />
-      <SafeAreaView edges={["top"]} style={{ backgroundColor: theme.background, flex: 1 }}>
+      <StatusBar barStyle={theme.barStyle} backgroundColor={theme.surface} />
+      <SafeAreaView edges={["top"]} style={{ backgroundColor: theme.surface, flex: 1 }}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen

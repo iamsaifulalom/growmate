@@ -7,7 +7,7 @@ export default function IconWrapper({ children, style, ...props }: IconWrapperPr
 
   const theme = useTheme(state => state.theme)
   return (
-    <TouchableOpacity style={[styles.iconWrapper, style, { backgroundColor: theme.surface, }]} {...props}>
+    <TouchableOpacity style={[styles.iconWrapper, style, { backgroundColor: theme.background, }]} {...props}>
       {children}
     </TouchableOpacity>
   );
