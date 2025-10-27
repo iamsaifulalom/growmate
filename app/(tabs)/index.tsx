@@ -40,11 +40,11 @@ export default function Index() {
         showsVerticalScrollIndicator={false}
       >
         {/* weekly performace */}
-        <WeeklyPerformaceGraph/>
         {/* clients over view cards */}
-        <ClientsOverview/>
-        {/* strikes */}
         <Activity/>
+        <ClientsOverview/>
+        <WeeklyPerformaceGraph/>
+        {/* strikes */}
       </ScrollView>
     </ScreenWrapper>
   )

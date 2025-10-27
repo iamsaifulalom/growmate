@@ -1,23 +1,23 @@
 import { View, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { ComponentType, ReactNode } from 'react'
 import { useTheme } from '../store/use-theme'
-import { H1, P } from './Elements'
+import { H2, P } from './Elements'
+import IconWrapper from './icon-wrapper'
+import { IconProps } from '@/assets/icons/home-icon'
 
-export default function OverviewCard({ title = "Title" , backgroundColor }: OverviewCardProps) {
+export default function OverviewCard({ title = "Title", Icon, backgroundColor, clients = 40 }: OverviewCardProps) {
 
     const theme = useTheme(state => state.theme)
 
     return (
         <View style={[styles.card, { backgroundColor: backgroundColor || theme.background }]}>
             <View style={styles.paragraphContainer}>
+                <IconWrapper isFeedback={false}>
+                    {Icon && <Icon color={theme.text} />}
+                </IconWrapper>
                 <P style={{ fontWeight: "bold" }}>{title}</P>
-                <P style={{ fontFamily: "space-grotesk-bold" }}>20% </P>
             </View>
-            <H1>40</H1>
-            {/* <View style={[styles.paragraphContainer, { justifyContent: "space-between" }]}>
-                <P>vs. last week</P>
-                <P style={{ fontFamily: "space-grotesk-bold" }}>20</P>
-            </View> */}
+            <H2>{clients / 1000 > 1 ? `${clients / 1000}k` : clients} <P>Clients</P></H2>
         </View>
     )
 }
@@ -29,16 +29,21 @@ export const styles = StyleSheet.create({
         borderRadius: 24,
         padding: 16,
         flex: 1,
+        flexDirection: "column",
+        justifyContent: "space-between"
     },
     paragraphContainer: {
         flexDirection: "row",
         justifyContent: "flex-start",
-        gap: 20
+        alignItems: "center",
+        gap: 10
     }
 })
 
 
 interface OverviewCardProps {
     backgroundColor?: string,
-    title?: string
+    title?: string,
+    Icon?: ComponentType<IconProps>;
+    clients?: number
 }

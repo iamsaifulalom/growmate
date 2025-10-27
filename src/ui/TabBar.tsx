@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         left: 0,
         right: 0,
-        paddingVertical: 10,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
     }
 })

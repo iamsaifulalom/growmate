@@ -6,7 +6,7 @@ export default function Tab({ isFocusd, onPress, routeName }: TabProps) {
 
     const theme = useTheme(state => state.theme);
     const backgroundColor = isFocusd ? theme.text : "transparent";
-    const iconColor = isFocusd ? theme.background : theme.muted;
+    const iconColor = isFocusd ? theme.foreground : theme.muted;
 
     // access icon properties from tabicons object 
     // with routename as key
@@ -15,7 +15,7 @@ export default function Tab({ isFocusd, onPress, routeName }: TabProps) {
     return (
         <TouchableOpacity
             onPress={onPress}
-            style={[styles.tab, { backgroundColor }]}
+            style={[styles.tab, { borderColor : backgroundColor }]}
         >
             <Icon color={iconColor} />
         </TouchableOpacity>
@@ -24,12 +24,13 @@ export default function Tab({ isFocusd, onPress, routeName }: TabProps) {
 
 const styles = StyleSheet.create({
     tab: {
-        height: 45,
-        width: 65,
-        // borderTopWidth: 2,
+        width: 60,
+        height: 60,
+        borderTopWidth: 2,
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: 50
+        // paddingBottom : 16,
+        // paddingTop : 8,
     }
 })
 

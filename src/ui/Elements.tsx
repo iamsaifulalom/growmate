@@ -24,7 +24,7 @@ export function H2({ children, style, ...Props }: TextProps): ReactElement {
     )
 }
 
-export function P({ children, style, ...Props }: TextProps): ReactElement {
+export function P({ children , style, ...Props }: TextProps): ReactElement {
 
     const theme = useTheme(state => state.theme);
 

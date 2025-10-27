@@ -1,15 +1,24 @@
 import React, { ReactElement } from 'react';
-import { TouchableOpacity, StyleSheet, TouchableOpacityProps } from 'react-native';
+import { Pressable, StyleSheet, PressableProps, StyleProp, ViewStyle } from 'react-native';
 import { useTheme } from '../store/use-theme';
 
 
-export default function IconWrapper({ children, style, ...props }: IconWrapperProps) {
+export default function IconWrapper({ children, isFeedback = true, style, ...props }: IconWrapperProps) {
 
   const theme = useTheme(state => state.theme)
   return (
-    <TouchableOpacity style={[styles.iconWrapper, style, { backgroundColor: theme.background, }]} {...props}>
+    <Pressable
+      style={({ pressed }) => [
+        styles.iconWrapper,
+        style,
+        {
+          opacity: pressed && isFeedback ? 0.2 : 1,
+          backgroundColor: theme.background,
+        },
+      ]}
+      {...props}>
       {children}
-    </TouchableOpacity>
+    </Pressable >
   );
 }
 
@@ -25,6 +34,9 @@ const styles = StyleSheet.create({
 
 
 // Extend TouchableOpacityProps so we can pass all its props (like onPress, activeOpacity, etc.)
-interface IconWrapperProps extends TouchableOpacityProps {
-  children: ReactElement;
+interface IconWrapperProps extends PressableProps {
+  children?: ReactElement;
+  isFeedback?: boolean;
+  style?: StyleProp<ViewStyle>;
+
 }
