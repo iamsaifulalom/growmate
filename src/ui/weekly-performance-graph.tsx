@@ -3,10 +3,12 @@ import { View, StyleSheet } from "react-native";
 import { CartesianChart, Area, Line } from "victory-native";
 import { useTheme } from "../store/use-theme";
 import { P } from "./Elements";
+import ActivityIcon from "@/assets/icons/activity-icon";
+import IconWrapper from "./icon-wrapper";
 
 export default function WeeklyPerformanceGraph() {
   const theme = useTheme((state) => state.theme);
-  const title = "Weekly performance"
+  const title = "Weekly activities"
   const data = [
     { day: "Mon", y: 20 },
     { day: "Tue", y: 70 },
@@ -22,7 +24,12 @@ export default function WeeklyPerformanceGraph() {
   return (
     <View style={[styles.container, { height, backgroundColor: theme.accents }]}>
 
-      <P style={[styles.title, { color: theme.text }]}>{title}</P>
+      <View style={styles.innerContainer}>
+        <IconWrapper isFeedback={false}>
+          <ActivityIcon />
+        </IconWrapper>
+        <P style={[styles.title, { color: theme.text }]}>{title}</P>
+      </View>
 
       <CartesianChart
         data={data}
@@ -61,6 +68,12 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     padding: 16,
     overflow: "hidden",
+  },
+  innerContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    gap: 10
   },
   title: {
     fontWeight: "bold",

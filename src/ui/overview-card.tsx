@@ -1,5 +1,5 @@
 import { View, StyleSheet } from 'react-native'
-import React, { ComponentType, ReactNode } from 'react'
+import React, { ComponentType } from 'react'
 import { useTheme } from '../store/use-theme'
 import { H2, P } from './Elements'
 import IconWrapper from './icon-wrapper'

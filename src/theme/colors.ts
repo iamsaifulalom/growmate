@@ -1,14 +1,14 @@
 // theme/colors.js
 export const darkTheme: ColorTheme = {
   name: "dark",
-  primary: '#6366F1',
-  secondary: '#34D399',
-  background: '#000000',
-  foreground: "#ffffff",
-  surface: '#111827',
-  accents: '#CDE7CB',
-  card: '#CDE7CB',
-  text: '#F9FAFB',
+  primary: '#1B2A32',
+  secondary: '#2B1E33',
+  background: '#0F1418',
+  foreground: '#FFFFFF',
+  surface: '#1E2329',
+  accents: '#294D2A',
+  card: '#2C1E12',
+  text: '#E5E7EB',
   muted: '#9CA3AF',
   barStyle: "light-content",
 

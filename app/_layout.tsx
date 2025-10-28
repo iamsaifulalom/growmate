@@ -3,6 +3,7 @@ import { StatusBar } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useFonts } from 'expo-font';
 import { useTheme } from "@/src/store/use-theme";
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 
 export default function RootLayout() {
@@ -19,19 +20,21 @@ export default function RootLayout() {
     <>
       {/* */}
       <StatusBar barStyle={theme.barStyle} backgroundColor={theme.surface} />
-      <SafeAreaView edges={["top"]} style={{ backgroundColor: theme.surface, flex: 1 }}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen
-            name="search"
-            options={{
-              headerShown: false,
-              animation: "fade",
-              animationDuration: 10
-            }}
-          />
-        </Stack>
-      </SafeAreaView>
+      <GestureHandlerRootView style={{flex:1}}>
+        <SafeAreaView edges={["top"]} style={{ backgroundColor: theme.surface, flex: 1 }}>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="search"
+              options={{
+                headerShown: false,
+                animation: "fade",
+                animationDuration: 10
+              }}
+            />
+          </Stack>
+        </SafeAreaView>
+      </GestureHandlerRootView>
     </>
   );
 }

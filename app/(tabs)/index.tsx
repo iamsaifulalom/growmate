@@ -1,4 +1,4 @@
-import { View, ScrollView, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import React from 'react'
 import ScreenWrapper from '@/src/ui/screen-wrapper'
 import NotificationIcon from '@/assets/icons/notification-icon'
@@ -10,6 +10,7 @@ import { useRouter } from 'expo-router'
 import WeeklyPerformaceGraph from '@/src/ui/weekly-performance-graph'
 import ClientsOverview from '@/src/ui/clients-overvie'
 import Activity from '@/src/ui/activity'
+import ContentsWrapper from '@/src/ui/contents-wrapper'
 
 export default function Index() {
 
@@ -35,17 +36,12 @@ export default function Index() {
       </HeaderWrapper>
 
       {/* ===== Screen Contents ===== */}
-      <ScrollView
-        contentContainerStyle={defaultScreenStyle.contentSection}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* weekly performace */}
-        {/* clients over view cards */}
-        <Activity/>
-        <ClientsOverview/>
-        <WeeklyPerformaceGraph/>
-        {/* strikes */}
-      </ScrollView>
+      <ContentsWrapper>
+        <Activity />
+        <ClientsOverview />
+        <WeeklyPerformaceGraph />
+      </ContentsWrapper>
+
     </ScreenWrapper>
   )
 }
@@ -54,12 +50,5 @@ const defaultScreenStyle = StyleSheet.create({
   rightIconsWrapper: {
     flexDirection: 'row',
     gap: 10,
-  },
-  contentSection: {
-    flexDirection: 'column',
-    gap: 6,
-    marginTop: 10,
-    paddingHorizontal: 20,
-    paddingBottom: 40, // for scroll breathing space
-  },
+  }
 })

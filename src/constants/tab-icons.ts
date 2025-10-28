@@ -6,7 +6,7 @@ import UsersIcon from "@/assets/icons/users-icon"
 export const tabIcons: TabIcons = {
     "index": {Icon : HomeIcon},
     "clients": {Icon: UsersIcon},
-    "todos": { Icon: NoteIcon},
+    "tasks": { Icon: NoteIcon},
     "settings": {Icon: SettingsIcon}
 
 }
